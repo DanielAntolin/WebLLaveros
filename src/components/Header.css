@@ -1,0 +1,239 @@
+/* Importación de fuentes e íconos */
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css');
+
+/* Reset CSS */
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: 'Open Sans', Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button,
+input {
+  font: inherit;
+  border: none;
+  outline: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* Estilos generales */
+#webcrumbs {
+  font-family: 'Open Sans', sans-serif;
+  padding: 16px;
+}
+
+#webcrumbs .Header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+#webcrumbs .Header img {
+  height: 50px;
+  width: 50px;
+  object-fit: contain;
+}
+
+#webcrumbs nav {
+  display: flex;
+  gap: 16px;
+}
+
+#webcrumbs nav p {
+  font-size: 14px;
+  color: #333;
+}
+
+#webcrumbs .relative {
+  margin-top: 16px;
+  width: 100%;
+}
+
+#webcrumbs form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#webcrumbs input[type="text"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+#webcrumbs input[type="text"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+#webcrumbs .result {
+  display: none;
+  background: #f1f1f1;
+  padding: 16px;
+  position: fixed;
+  top: 50px;
+  width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+#webcrumbs label {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#webcrumbs .text-red-500 {
+  color: #e53e3e;
+  font-size: 12px;
+}
+.result {
+  position: absolute;
+  top: 100%; /* Justo debajo del formulario de búsqueda */
+  left: 0;
+  width: 100%; /* Asegura que ocupe todo el ancho del contenedor */
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  max-height: 300px; /* Altura máxima para limitar el espacio ocupado */
+  overflow-y: auto; /* Habilita el scroll si hay muchos resultados */
+  display: none; /* Por defecto, oculto */
+}
+
+/* Cuando hay resultados o se debe mostrar el aside */
+.result.visible {
+  display: block;
+}
+
+/* Lista de llaveros */
+.keychains {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Cada llavero individual */
+.keychain {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espacio entre la imagen y el texto */
+}
+
+/* El último llavero no necesita borde inferior */
+.keychain:last-child {
+  border-bottom: none;
+}
+
+/* Estilo del título del llavero */
+.keychain h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Descripción del llavero */
+.keychain p {
+  margin: 5px 0 0;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Imagen del llavero */
+.keychain img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Mensaje cuando no hay resultados */
+.result p {
+  text-align: center;
+  color: #999;
+  font-size: 14px;
+  padding: 20px;
+}
+
+/* Para el formulario de búsqueda y campo de texto */
+form {
+  position: relative;
+}
+
+input[type="text"] {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+/* Botón de ordenar */
+label {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  gap: 5px;
+  font-size: 14px;
+  color: #555;
+}
+
+input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+}
+
+/* Animaciones para una mejor experiencia */
+.result {
+  transition: all 0.3s ease-in-out;
+}
+
+.result.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.result.hidden {
+  opacity: 0;
+  transform: translateY(-10px);
+  display: none;
+}
+
+
+
+

@@ -1,35 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Routes, Route } from 'react-router-dom';
+import { Header } from './components/Header.jsx';
+import { Footer } from './components/Footer.jsx';
+import { Cart } from './components/Cart.jsx';
+import { CartProvider } from './context/cart.jsx';
+import { FiltersProvider } from './context/filters.jsx'; // Asegúrate de importar FiltersProvider
+import { IS_DEVELOPMENT } from './config.js';
+
+import { LoadPageProducts } from './components/Products.jsx'; // Importa el componente de la lista de productos
+import { Home } from './pages/Home.jsx';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <CartProvider>
+      <FiltersProvider> {/* Envuelve el contenido con FiltersProvider */}
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home/>} /> {/* Ruta para la página de inicio */}
+          <Route path="/products" element={<LoadPageProducts />} /> {/* Ruta para la lista de productos */}
+        </Routes>
+        {IS_DEVELOPMENT && <Footer />}
+      </FiltersProvider>
+    </CartProvider>
+  );
 }
 
-export default App
+export default App;
